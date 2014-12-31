@@ -1,0 +1,10 @@
+<?php $__env->startSection('header-right'); ?>
+	<a href="<?php echo URL::route('newPost'); ?>" class="btn btn-default btn-lg">
+	<span class="glyphicon glyphicon-pencil"></span>
+	</a>
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('content'); ?>
+	<?php foreach($posts as $post): ?>
+		<?php echo $__env->make('blog.partials.post', array('post' => $post), array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+	<?php endforeach; ?>
+<?php $__env->stopSection(); ?>

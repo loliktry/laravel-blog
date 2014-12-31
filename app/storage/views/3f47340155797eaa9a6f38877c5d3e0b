@@ -1,0 +1,27 @@
+<?php $__env->startSection('content'); ?>
+	<?php echo $__env->make('blog.partials.post', array('post' => $post), array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+
+	<hr />
+	<section id="comments">
+		<?php foreach($post->comments as $comment): ?>
+			<div class="comment">
+				<p><b><?php echo $comment->name; ?></b> komen... </p>
+				<blockquote> <?php echo $comment->content; ?></blockquote>
+			</div>
+		<?php endforeach; ?>
+	</section>
+	<section>
+		<h3 class="title"> Add a comment</h3>
+		<form action="<?php echo URL::route('createComment', array('id' => $post->id)); ?>" method="post">
+			<div class="form-group">
+				<input name="name" class="form-control" type="text" placeholder="Your name" />
+			</div>
+			<div class="form-group">
+				<textarea name="content" class="form-control" placeholder="Write here..."></textarea>
+
+			</div>
+			<input type="submit" class="btn btn-primary">
+
+		</form>
+	</section>
+<?php $__env->stopSection(); ?>
